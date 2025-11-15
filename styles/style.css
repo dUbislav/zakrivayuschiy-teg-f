@@ -43,11 +43,11 @@
   font-family: var(--accent-font), sans-serif;
 }
 
-.main-title { 
+.main-title {
   font-size: var(--main-title-size);
 }
 
-.header-text { 
+.header-text {
   font-size: var(--header-text-size);
 }
 
@@ -142,7 +142,6 @@
   padding-left: 25px;
   height: 38px;
   display: flex;
-  gap: 12px;
   align-self: flex-end;
   align-items: center;
 }
@@ -205,12 +204,6 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-.dialog svg {
-  width: 39px;
-  height: 39px;
-  min-width: 39px;
-}
-
 body:has(dialog[open]) {
   overflow: hidden;
 }
@@ -264,7 +257,7 @@ body:has(dialog[open]) {
   box-shadow: 2px 2px 0px var(--accent-color);
 }
 
-.button .button__text{
+.button .button__text {
   position: relative;
   z-index: 9999;
   mix-blend-mode: difference;
