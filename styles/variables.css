@@ -32,4 +32,9 @@
     --basic-border: solid 2px #000000;
     --main-title-size: clamp(49px, 4.5vw, 65px);
     --header-text-size: clamp(14px, 1.5972vw, 23px);
+    --heart-contour-color: #000000;
+    --heart-spark-color: #FF0000;
+    --heart-core-color: transparent;
+    --heart-main-body-color: transparent;
+    --heart-animation-color: #FF0000;
 }

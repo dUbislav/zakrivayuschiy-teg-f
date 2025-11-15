@@ -153,8 +153,6 @@
   font-weight: 400;
 }
 .card__like-button {
-  border: var(--basic-border);
-  font-family: var(--accent-font);
   font-weight: 400;
   font-size: 14px;
   width: 130px;
@@ -171,7 +169,6 @@
   min-height: 55px;
   background-color: var(--bg-color);
   text-align: center;
-  border: var(--basic-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,6 +179,7 @@
 .footer svg {
   width: 21px;
   height: 21px;
+  mix-blend-mode: difference;
 }
 
 .dialog {
@@ -192,8 +190,6 @@
   gap: 30px;
   padding: 30px;
   background-color: var(--bg-color);
-  border: var(--basic-border);
-  font-family: var(--accent-font);
   line-height: 150%;
   max-width: 353px;
   font-size: 14px;
@@ -237,14 +233,16 @@ body:has(dialog[open]) {
   min-width: 39px;
 }
 
-button:not(.card__icon-button) {
-  color: var(--accent-color);
+.button {
+  color: var(--bg-color);
   cursor: pointer;
   position: relative;
   transition: box-shadow 0.3s ease;
+  border: var(--basic-border);
+  font-family: var(--accent-font);
 }
 
-button:not(.card__icon-button)::before {
+.button::before {
   content: "";
   background-color: var(--accent-color);
   width: 100%;
@@ -257,30 +255,29 @@ button:not(.card__icon-button)::before {
   transition: transform 0.5s ease-in-out;
 }
 
-button:not(.card__icon-button):hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
-button:not(.card__icon-button):focus {
+.button:focus {
   outline: none;
   box-shadow: 2px 2px 0px var(--accent-color);
 }
 
-button:not(.card__icon-button) .button__text{
+.button .button__text{
   position: relative;
   z-index: 9999;
-  color: var(--button-text-color);
   mix-blend-mode: difference;
 }
 
-button:not(.card__icon-button) svg path {
-  fill: var(--button-text-color);
+.button svg {
+  fill: var(--bg-color);
   z-index: 9999;
   position: relative;
-  mix-blend-mode: difference;
 }
 
 .card__icon-button {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -289,6 +286,69 @@ button:not(.card__icon-button) svg path {
 
 .card__icon-button:focus-visible {
   outline: 2px solid var(--accent-color);
+}
+
+.sparks {
+  opacity: 0%;
+}
+
+.contour {
+  transition: fill 0.1s linear 0s;
+}
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.main-body {
+  transition: fill 0.3s linear 0s;
+}
+
+.card__icon-button:hover .core {
+  fill: var(--heart-contour-color);
+  transition: 0.3s linear 0s;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--heart-contour-color);
+  transition: 0.3s linear 0.05s;
+}
+
+.card__icon-button:active .core {
+  fill: var(--heart-animation-color);
+  transition: 0.3s linear 0s;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--heart-animation-color);
+  transition: 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-animation-color);
+  transition: 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-animation-color);
+  transition: 0.3s linear 0s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-animation-color);
+  transition: 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .heart {
+  animation: scale-ani 0.3s ease-in 0.1s 1;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity 0.3s ease-in 0.3s 1;
+}
+
+.heart {
+  transform-origin: center;
 }
 
 @media (width <= 375px) {
