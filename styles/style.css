@@ -8,21 +8,10 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-
-@supports ((-webkit-text-stroke: 1px #FFFFFF) or (text-stroke: 1px #FFFFFF)) {
-  .watermark {
-    -webkit-text-stroke: 1px #FFFFFF;
-    text-stroke: 1px #FFFFFF;
-    text-shadow: none;
-  }
-}
-
 .page {
-  background-image: var(--bg-gradient);
-  background-position: fixed;
-  background-size: cover;
+  background: var(--bg-gradient) center / cover no-repeat fixed;
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' var(--wght-regualar);
+  font-variation-settings: 'wght' var(--wght-regular);
   max-inline-size: 700px;
   block-size: 100%;
   margin: 0 auto;
@@ -35,12 +24,12 @@
   background-color: var(--bg-color);
   text-align: center;
   margin-block-start: 100px;
-  margin-block-end: 100px;
+  margin-block-end: 98px;
   padding-top: var(--header-padding);
   padding-bottom: var(--header-padding);
   border: var(--basic-border);
   font-weight: 400;
-  font-family: var(--accent-font), sans-serif;
+  font-family: var(--accent-font);
 }
 
 .main-title {
@@ -49,12 +38,14 @@
 
 .header-text {
   font-size: var(--header-text-size);
+  text-transform: uppercase;
 }
 
 .main {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  margin-bottom: 100px;
 }
 
 .card {
@@ -66,9 +57,13 @@
 .card:first-child {
   gap: 0px;
 }
+
 .card-title {
-  font-variation-settings: 'wght' var(--wght-bold);
+  font-variation-settings: 'wght' var(--wght-bold), 'wdth' var(--wdth);
+  line-height: 1.2;
+  letter-spacing: 0;
   padding: 4px 10px;
+  font-size: 18px;
 }
 
 .card-image {
@@ -106,13 +101,28 @@
 .image-container {
   display: inline-block;
   position: relative;
+  border-bottom: var(--basic-border);
+  border-top: var(--basic-border);
+}
+
+.image-container img {
+  display: block;
 }
 
 .card-content {
   display: flex;
-  gap: 25px;
   flex-direction: column;
   font-variation-settings: 'wght' var(--wght-regular);
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.text-container {
+  padding-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .card-content .card-text {
@@ -136,14 +146,22 @@
   text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
+@supports ((-webkit-text-stroke: 1px #FFFFFF) or (text-stroke: 1px #FFFFFF)) {
+  .watermark {
+    -webkit-text-stroke: 1px #FFFFFF;
+    text-stroke: 1px #FFFFFF;
+    text-shadow: none;
+  }
+}
+
 .button-container {
-  margin-bottom: 25px;
   padding-right: 25px;
-  padding-left: 25px;
   height: 38px;
   display: flex;
   align-self: flex-end;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .button__text {
@@ -151,6 +169,7 @@
   font-size: 14px;
   font-weight: 400;
 }
+
 .card__like-button {
   font-weight: 400;
   font-size: 14px;
@@ -158,11 +177,7 @@
   height: 38px;
 }
 
-.footer {
-  padding: 50px 0 100px 0;
-}
-
-.footer-button {
+.save-button {
   line-height: 90%;
   min-width: 335px;
   min-height: 55px;
@@ -175,25 +190,26 @@
   margin: 0 auto;
 }
 
-.footer svg {
+.button-svg {
   width: 21px;
   height: 21px;
   mix-blend-mode: difference;
 }
 
 .dialog {
-  position: fixed;
-  inset: 0;
   display: none;
+  padding: 37px 30px 30px 30px;
   flex-direction: column;
+  justify-content: center;
   gap: 30px;
-  padding: 30px;
   background-color: var(--bg-color);
   line-height: 150%;
   max-width: 353px;
+  min-height: 191px;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
+  border: var(--basic-border);
 }
 
 .dialog[open] {
@@ -212,6 +228,7 @@ body:has(dialog[open]) {
   display: flex;
   gap: 20px;
   align-items: center;
+  align-self: center;
 }
 
 .floppy-button {
@@ -228,6 +245,7 @@ body:has(dialog[open]) {
 
 .button {
   color: var(--bg-color);
+  background-color: var(--bg-color);
   cursor: pointer;
   position: relative;
   transition: box-shadow 0.3s ease;
@@ -270,6 +288,8 @@ body:has(dialog[open]) {
 }
 
 .card__icon-button {
+  background-color: transparent;
+  padding: 0px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -279,6 +299,7 @@ body:has(dialog[open]) {
 
 .card__icon-button:focus-visible {
   outline: 2px solid var(--accent-color);
+  outline-offset: 0;
 }
 
 .sparks {
@@ -332,7 +353,7 @@ body:has(dialog[open]) {
   transition: 0.3s linear 0.05s;
 }
 
-.like-icon.is-liked .heart {
+.like-icon.is-liked {
   animation: scale-ani 0.3s ease-in 0.1s 1;
 }
 
@@ -345,14 +366,19 @@ body:has(dialog[open]) {
 }
 
 @media (width <= 375px) {
-  .footer-button {
+  .save-button {
     min-width: 306px;
     min-height: 84px;
     flex-direction: column;
   }
 
-  .footer svg {
+  .save-section svg {
   width: 28px;
   height: 28px;
+}
+
+.dialog {
+  max-width: 341px;
+  padding: 30px 20px 30px 40px;
 }
 }
