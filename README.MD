@@ -1,1 +1,0 @@
-https://dubislav.github.io/zakrivayuschiy-teg-f/
