@@ -114,6 +114,7 @@
   flex-direction: column;
   font-variation-settings: 'wght' var(--wght-regular);
   font-size: 18px;
+  line-height: 21px;
   margin-bottom: 25px;
 }
 
@@ -198,14 +199,14 @@
 
 .dialog {
   display: none;
-  padding: 37px 30px 30px 30px;
+  padding:25px 29px 25px 29px;
+  margin-top: auto;
   flex-direction: column;
   justify-content: center;
   gap: 30px;
   background-color: var(--bg-color);
   line-height: 150%;
   max-width: 353px;
-  min-height: 191px;
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
@@ -232,8 +233,11 @@ body:has(dialog[open]) {
 }
 
 .floppy-button {
-  padding-top: 12.5px;
-  padding-bottom: 12.5px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   border: var(--basic-border);
 }
 
@@ -378,7 +382,8 @@ body:has(dialog[open]) {
 }
 
 .dialog {
+  gap: 29px;
   max-width: 341px;
-  padding: 30px 20px 30px 40px;
+  padding: 30px 38px 30px 38px; 
 }
 }
